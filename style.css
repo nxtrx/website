@@ -1,0 +1,101 @@
+/* 1. Imports & Global */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+* { box-sizing: border-box; font-family: monospace; }
+
+body {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('imgs/bg2.png') #000;
+    background-attachment: fixed;
+    margin: 0;
+    color: #fff;
+}
+
+.site-header {
+    width: 100%;
+    height: 180px;
+    background-image: url('imgs/bg-header.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+}
+
+/* 2. Layout Structure */
+.main-wrapper {
+    width: 900px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    /*border: 1px solid #fff;*/
+    box-shadow: 30px 0px 25px #000, -30px 0px 25px #000;
+
+}
+
+.top-row {
+    display: flex;
+    /*border: 2px solid #333;*/
+    background: rgba(4,4,4,1);
+}
+
+/* 3. Sidebar (right) */
+.sidebar {
+    width: 160px;
+    border-left: 2px solid #eee;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.lil-header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('imgs/bg-header.png');
+}
+
+.lil-header h2{
+    margin: 2px;
+    color: #fff;
+}
+
+.sidebar a {border-bottom: 1px dashed #fff; padding: 9px;}
+
+a { font-size: 1.2rem; color: #fff; text-decoration: none; display: block; font-weight: 700; }
+a:hover { color: #fff; text-shadow: 0 0 5px #fff; }
+
+/* 4. Content Area (Right) */
+.content-area { flex-grow: 1; }
+
+iframe { width: 100%; height: 1000px; border: none; display: block; }
+
+/* 5. Comment Section */
+.comment-section { border: 2px solid #333; background: #000; }
+
+.comment-header {
+    background: #c5b3a3;
+    color: #000;
+    padding: 10px 20px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.comment-form { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+
+.input-group { display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
+
+input, textarea { background: #fff; border: 1px solid #333; padding: 5px; width: 300px; }
+
+textarea { width: 88px; height: 33px; background: #040404; color: #fff;}
+
+footer{
+    background-color: black;
+    text-align: center;
+    padding: 10px;
+}
+
+textarea {
+
+}

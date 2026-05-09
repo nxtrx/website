@@ -1,0 +1,137 @@
+body{
+    background-color: transparent;
+    color: #fff;
+    font-family: monospace;
+    padding: 10px;
+}
+
+p{
+    font-size: 0.9rem;
+    margin: 0 0 15px 0;
+}
+
+.lil-header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('imgs/bg-header.png');
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading h1{
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    border-bottom: 1px solid #7ea2ea;
+    padding-bottom: 5px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.content{
+    display: flex;
+    gap: 20px;
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+}
+
+.about img{
+    margin: 0 0 5px 0;
+}
+
+.about p{
+    margin: 0 0 5px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #fff;
+}
+
+span{
+    color: #7ea2ea;
+}
+
+#statuscafe {
+    color:white;
+    background: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(23, 23, 23, 1) 100%);
+    position: relative;
+    max-height: 165px;
+    overflow-y: auto;
+}
+
+#statuscafe-username {
+    margin-bottom: .5em;
+}
+
+#statuscafe-username a{
+    color:#7ea2ea;
+}
+
+#statuscafe-username a:hover{
+color:#000;
+background-color:#7ea2ea;
+}
+
+#statuscafe-content {
+margin: 0 1em 0.5em 1em;
+}
+
+.status{
+    gap:0;
+}
+
+.history-item{
+    border-bottom: 1px solid #fff;
+    padding: .5em;
+}
+
+.history-item a:hover{
+    background-color:#7ea2ea;
+    color: #000;
+}
+
+.history-item a{
+    color: #7ea2ea;
+}
+
+.history-user {
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.history-time {
+    color: #ffffff !important; /* Pure white for the 'minutes ago' text */
+    font-size: 0.9em;
+    opacity: 0.9; /* Optional: makes it slightly softer like your image */
+}
+
+.history-emoji {
+    margin: 0 4px; /* Gives the emoji a little breathing room */
+}
+
+.history-text {
+    display: block;
+    margin-left: 16px;
+    margin-top: 6px;
+    margin-bottom: 9px;
+    color: #ffffff; /* Ensures your actual status message is also white */
+}
+
+.guestbook{
+    overflow: hidden;
+}
+
+.guestbook iframe{
+    width:100%;
+    height:500px;
+    border:0;
+    margin-top: -65px;
+
+}

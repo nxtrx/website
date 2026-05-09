@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="lil-header" style="margin-bottom: 20px;"><img style="margin: 5px;" src="imgs/welcome.png"></div>
+    <div>
+      <div class="content" style="margin-bottom: 20px;">
+        <div class="about">
+            <img class="me" src="imgs/me2.png">
+            <p><b>name:</b> <del>redacted</del></p>
+            <p><b>username:</b> nxtrx</p>
+            <p><b>pronouns:</b> he/him</p>
+            <p><b>age:</b> 22</p>
+        </div>
+
+        <div>
+            <p>Hi! I go by <span>nxtrx</span>. <i>(pronounced <span>nitro</span>)</i></p>
+            <p>I'm just a silly little person on the internet with an unpronounceable username to the uninitiated anyway... <span>Have a look around!</span></p>
+            <p>If you like my page <span>leave a comment</span> and if you like it even more feel <span>free to link</span> it and <span>use my button!</span></p>
+
+            <div style="border: 2px solid #fff">
+                <div class="lil-header"><img style="margin: 5px;" src="imgs/status.png"></div>
+                <div id="statuscafe">
+                  <div class="status-history" id="status-history-auto">
+                    <div class="history-header"></div>
+                    <div id="history-content"></div>
+                  </div>
+                </div>
+                <script src="https://status.cafe/current-status.js?name=nxtrx" defer></script>
+            </div>
+
+        </div>
+      </div>
+    <div style="border: 2px solid #fff">
+      <div class="lil-header"><img style="margin: 5px;" src="imgs/guestbook.png"></div>
+      <div class="guestbook">
+          <iframe name="content-frame" id="content-frame" src="https://nxtrx.atabook.org/" allowtransparency="true"></iframe>
+      </div>
+    </div>
+
+</body>
+
+<script>
+  (function() {
+    const user = 'nxtrx';
+    const container = document.getElementById('history-content');
+    const rssUrl = encodeURIComponent(`https://status.cafe/users/${user}.atom`);
+    const finalUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
+
+    function timeAgo(dateParam) {
+      const date = new Date(dateParam);
+      const now = new Date();
+      const seconds = Math.round((now - date) / 1000);
+      const minutes = Math.round(seconds / 60);
+      const hours = Math.round(minutes / 60);
+      if (seconds < 60) return 'just now';
+      if (minutes < 60) return `${minutes} minutes ago`;
+      if (hours < 24) return `${hours} hours ago`;
+      return `${Math.round(hours / 24)} days ago`;
+    }
+
+    fetch(finalUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'ok') {
+          container.innerHTML = '';
+          data.items.forEach(item => {
+            const timeString = timeAgo(item.pubDate);
+
+            let fullText = item.content ;
+            let emojiText = item.title ;
+
+            const emojiMatch = emojiText.match(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/);
+            const currentEmoji = emojiMatch ? emojiMatch[0] : '💬';
+
+            const cleanText = fullText.replace(new RegExp(`^${user}\\s*\\S+\\s*`, 'i'), '').trim();
+
+            const div = document.createElement('div');
+            div.className = 'history-item';
+            div.innerHTML = `
+              <div class="history-meta">
+                <a href="https://status.cafe/users/${user}" class="history-user">${user}</a>
+                <span class="history-emoji">${currentEmoji}</span>
+                <span class="history-time">${timeString}</span>
+              </div>
+              <div class="history-text">${cleanText}</div>
+            `;
+            container.appendChild(div);
+          });
+        }
+      });
+  })();
+</script>

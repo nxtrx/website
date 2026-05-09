@@ -1,0 +1,116 @@
+body{
+    background-color: transparent;
+    color: #fff;
+    font-family: monospace;
+    padding: 10px;
+}
+
+p{
+    font-size: 0.9rem;
+    margin: 0 0 15px 0;
+}
+
+table {
+    font-family: monospace;
+    border-collapse: collapse;
+    width: 100%;
+    /* Ensure the table itself doesn't have an outer border */
+    border-style: hidden;
+    font-size: 0.9rem;
+}
+
+td, th {
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #dddddd; /* Or white, per your preference */
+}
+
+/* Remove top border from the first row */
+tr:first-child th,
+tr:first-child td {
+    border-top: none;
+}
+
+/* Remove bottom border from the last row */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Remove left border from the first column */
+td:first-child,
+th:first-child {
+    border-left: none;
+}
+
+/* Remove right border from the last column */
+td:last-child,
+th:last-child {
+    border-right: none;
+}
+
+.lil-header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('imgs/bg-header.png');
+    border: 1px dashed #fff;
+}
+
+
+.heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading h1{
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    border-bottom: 1px solid #7ea2ea;
+    padding-bottom: 5px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.content{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+}
+
+.about img{
+    margin: 0 0 5px 0;
+}
+
+.about p{
+    margin: 0 0 5px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #fff;
+}
+
+span{
+    color: #7ea2ea;
+}
+
+.base-image {
+    width:220px;
+    filter: grayscale(100%);
+}
+
+.base-image:hover{
+    filter: none;
+}
